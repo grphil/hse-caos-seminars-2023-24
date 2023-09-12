@@ -1,0 +1,49 @@
+eax ax 
+ebx bx
+ecx
+edx
+esi
+edi
+
+ebp // не пользуемся
+esp // не пользуемся
+
+eip // не получится пользоваться
+
+Операции
+mov src dst
+
+Суффикс
+b 8 бит
+w 16 бит
+l 32 бит
+q 64 бит
+
+movl %eax, %ebx // ebx = eax
+movl $228, %ebx // ebx = 228
+
+simpleio
+readi32 (считать 32-битное число в регистр eax)
+readi64 (считать в edx:eax)
+writei32
+finish
+
+gcc -m32 a.S simpleio.S -o a
+
+GDB:
+Для ассемблера пишем layout asm
+Ставить breakpoint: b *main+14 (как пишется в окне ассемблера)
+
+
+ZF если вышел ноль, устанавливается флаг
+SF если число отрицательное
+CF если произошло переполнение unsigned типа
+OF если произошло переполнение signed типа
+
+cmpl a, b (b - a) не сохраняет результат
+testl a, b (a & b)
+
+jz (прыгнуть если ZF = 1)
+jnz (прыгнуть, если zf = 0)
+
+
