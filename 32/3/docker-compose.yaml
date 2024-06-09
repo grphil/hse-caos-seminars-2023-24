@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app2:
+    build: .
+    depends_on:
+    - mongodb
+    ports:
+    - "127.0.0.1:8888:8080"
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: caos
+      MONGO_INITDB_ROOT_PASSWORD: 2023
+    volumes:
+    - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
